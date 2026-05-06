@@ -121,6 +121,7 @@ useEffect(() => {
                 <div className="relative w-1/2 group overflow-hidden">
                     <img
                         src="/images/CCTV.jpg"
+                        alt="CCTV"
                         className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
 
