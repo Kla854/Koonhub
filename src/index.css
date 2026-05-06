@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌐 Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🧠 Font (ดูเป็นบริษัทมากขึ้น) */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 💻 Code */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* 🔥 Fade Animation (Hero) */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fade 1s ease-in-out;
+}
+
+/* ✨ Scroll Reveal (สำคัญมาก) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🎯 ทำให้ delay ได้ (ดูโปรขึ้น) */
+.reveal.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.reveal.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.reveal.delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* 🌫️ Blur Navbar (ถ้าใช้) */
+.backdrop-blur-md {
+  backdrop-filter: blur(10px);
+}
+
+/* 🔥 Hover Smooth */
+* {
+  transition: all 0.2s ease;
+}
