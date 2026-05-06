@@ -33,22 +33,6 @@ useEffect(() => {
         }
     }
 }, [location]);
-   {/* const services = [
-        { name: "IT Service", link: "/it-service" },
-        { name: "CCTV & SECURITY", link: "/cctv" },
-        { name: "IT Equipment", link: "/equipment" },
-        { name: "NETWORK & SECURITY", link: "/Network" },
-    ];
-    useEffect(() => {
-  if (location.hash) {
-    const el = document.getElementById(location.hash.replace("#", ""));
-    if (el) {
-      setTimeout(() => {
-        el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }
-}, [location]);*/}
 
     return (
         <div className="font-sans">
