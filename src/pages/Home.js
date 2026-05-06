@@ -97,7 +97,7 @@ useEffect(() => {
 
                     <button
                         onClick={() => {
-                            document.getElementById("hero2").scrollIntoView({ behavior: "smooth" });
+                            document.getElementById("services").scrollIntoView({ behavior: "smooth" });
                         }}
                         className="border border-white px-8 py-3 hover:bg-white hover:text-black transition duration-300"
                     >
@@ -115,7 +115,7 @@ useEffect(() => {
             </div>
 
             {/* 🔥 HERO SPLIT */}
-            <div id="hero2" className="h-screen flex">
+            <div id="services" className="h-screen flex">
 
                 {/* LEFT */}
                 <div className="relative w-1/2 group overflow-hidden">
@@ -172,7 +172,7 @@ useEffect(() => {
 
             </div>
 
-            {/* 🧩 Services */}
+            {/* 🧩 Services 
             <section id="services" className="py-16 bg-gray-100 reveal">
                 <h2 className="text-3xl text-center font-bold mb-10">บริการของเรา</h2>
 
@@ -202,7 +202,7 @@ useEffect(() => {
                         )
                     ))}
                 </div>
-            </section>
+            </section>  */}
 
             {/* ⭐ About */}
             <section id="about" className="py-16 reveal">
