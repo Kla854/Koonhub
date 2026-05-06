@@ -120,7 +120,7 @@ useEffect(() => {
                 {/* LEFT */}
                 <div className="relative w-1/2 group overflow-hidden">
                     <img
-                        src="/images/CCTV.jpg"
+                        src="/images/CCTV.png"
                         alt="CCTV"
                         className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
@@ -148,7 +148,7 @@ useEffect(() => {
                 {/* RIGHT */}
                 <div className="relative w-1/2 group overflow-hidden">
                     <img
-                        src="/images/CCTV.jpg"
+                        src="/images/service.png"
                         alt="CCTV"
                         className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
                     />
