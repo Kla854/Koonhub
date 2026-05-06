@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
-import translations from "../i18n";
-import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function CCTV() {
     return (
