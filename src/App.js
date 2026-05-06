@@ -8,7 +8,6 @@ import ScrollToTop from "./components/ScrollToTop";
 import { useState } from "react";
 
 export default function App() {
-  const [lang, setLang] = useState("th");
   return (
     <>
       {/* ทำให้เปลี่ยนหน้าแล้วขึ้นบนสุด */}
