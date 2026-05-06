@@ -27,7 +27,7 @@ export default function CCTV() {
       <section id="home" className="relative h-screen">
 
         <img
-          src="/images/it.jpg"
+          src="/images/CCTVV.png"
           className="absolute inset-0 w-full h-full object-cover"
           alt="logo"
         />
@@ -158,7 +158,7 @@ export default function CCTV() {
       {/* Card 1 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p1.jpg"
+          src="/images/cctv1.png"
           alt="โปรเจคเยอะ"
           className="w-full h-56 object-cover"
         />
@@ -173,7 +173,7 @@ export default function CCTV() {
       {/* Card 2 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p2.jpg"
+          src="/images/cctv2.png"
           alt="ติดตั้งไม่ถูกต้อง"
           className="w-full h-56 object-cover"
         />
@@ -188,7 +188,7 @@ export default function CCTV() {
       {/* Card 3 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p3.jpg"
+          src="/images/cctv3.png"
           alt="ระบบไม่เสถียร"
           className="w-full h-56 object-cover"
         />
@@ -203,7 +203,7 @@ export default function CCTV() {
       {/* Card 4 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p4.jpg"
+          src="/images/cctv4.png"
           alt="ไม่มีผู้ดูแลระบบ"
           className="w-full h-56 object-cover"
         />
