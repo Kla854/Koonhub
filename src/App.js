@@ -5,7 +5,7 @@ import CCTV from "./pages/CCTV";
 import Equipment from "./pages/Equipment";
 import Network from "./pages/Network";
 import ScrollToTop from "./components/ScrollToTop";
-import { useState } from "react";
+import React from 'react';
 
 export default function App() {
 
