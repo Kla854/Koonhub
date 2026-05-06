@@ -77,7 +77,7 @@ useEffect(() => {
             <section id="home" className="relative h-screen">
 
                 <img
-                    src="/images/logo.jpg"
+                    src="/images/logo.png"
                     className="absolute inset-0 w-full h-full object-cover"
                     alt=""
                 />
@@ -265,7 +265,7 @@ useEffect(() => {
                             </p>
 
                             <p className="text-red-500 mt-4 font-semibold">
-                                โทร : 093-654-9442
+                                โทร : 062-428-3696
                             </p>
 
                         </div>
@@ -290,7 +290,7 @@ useEffect(() => {
                             </p>
 
                             <p className="text-red-500 mt-4 font-semibold">
-                                โทร : 093-654-9442
+                                โทร : 062-428-3696
                             </p>
 
                         </div>
@@ -304,7 +304,7 @@ useEffect(() => {
                                     📞
                                 </div>
                                 <div>
-                                    <p>โทร : 093-654-9442</p>
+                                    <p>โทร : 062-428-3696 (คุณมาร์ค)</p>
                                     <p className="text-gray-400 text-sm">
                                         ทุกวัน : 8:00 - 17:00 น.
                                     </p>
@@ -317,7 +317,7 @@ useEffect(() => {
                                     💬
                                 </div>
                                 <div>
-                                    <p>Line : mas_chic</p>
+                                    <p>Line : @koon_s</p>
                                     <p className="text-gray-400 text-sm">
                                         ทุกวัน : 8:00 - 17:00 น.
                                     </p>
@@ -330,7 +330,7 @@ useEffect(() => {
                                     ✉️
                                 </div>
                                 <div>
-                                    <p>E-mail : mathuros@koonservice.com </p>
+                                    <p>E-mail : kvs_service@koonservice.com</p>
                                     <p className="text-gray-400 text-sm">
                                         ทุกวัน : 8:00 - 17:00 น.
                                     </p>
