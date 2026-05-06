@@ -33,7 +33,7 @@ useEffect(() => {
         }
     }
 }, [location]);
-    const services = [
+   {/* const services = [
         { name: "IT Service", link: "/it-service" },
         { name: "CCTV & SECURITY", link: "/cctv" },
         { name: "IT Equipment", link: "/equipment" },
@@ -48,7 +48,7 @@ useEffect(() => {
       }, 100);
     }
   }
-}, [location]);
+}, [location]);*/}
 
     return (
         <div className="font-sans">
