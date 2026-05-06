@@ -10,9 +10,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       {/* ✅ ครอบตรงนี้ */}
-      <LanguageProvider>
         <App />
-      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
