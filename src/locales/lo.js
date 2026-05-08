@@ -1,11 +1,11 @@
-﻿export default {
+﻿const translations = {
   common: {
     logo: "KOON-SERVICE",
     viewService: "ເບິ່ງບໍລິການ",
     explore: "ສຳຫຼວດບໍລິສັດ",
     contactHelp: "ຕິດຕໍ່ເຮົາເພື່ອຮັບການຊ່ວຍເຫຼືອ",
     contactButton: "ຕິດຕໍ່ພວກເຮົາ",
-    footer: "© 2026 Koon-Service. All rights reserved. ພັດທະນາໂດຍນັກສຶກສາສາຂາເຕັກໂນໂລຊັນດິຈິຕອລແລະຂໍ້ມູນ",
+    footer: "© 2026 Koon-Service. All rights reserved. พัฒนาโดย นักศึกษาสาขาเทคโนโลยีดิจิทัลและสารสนเทศ ระดับปริญญาตรี",
     phone: "ໂທ : 062-428-3696",
     line: "Line : @koon_s",
     email: "E-mail : kvs_service@koonservice.com",
@@ -162,3 +162,4 @@
     ctaText: "သင့်လုပ်ငန်းအတွက် သင့်တော်သော စနစ်ကို ဒီဇိုင်းရန် ကျွမ်းကျင္သူနှင့် ဆွေးနွေးပါ",
   },
 };
+export default translations;

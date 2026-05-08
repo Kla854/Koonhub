@@ -1,4 +1,4 @@
-﻿export default {
+﻿const translations = {
   common: {
     logo: "KOON-SERVICE",
     viewService: "ดูบริการ",
@@ -162,3 +162,4 @@
     ctaText: "ปรึกษาผู้เชี่ยวชาญเพื่อออกแบบระบบที่เหมาะกับธุรกิจของคุณ",
   },
 };
+export default translations;

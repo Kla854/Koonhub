@@ -1,4 +1,4 @@
-export default {
+const translations = {
   common: {
     logo: "KOON-SERVICE",
     viewService: "查看服务",
@@ -99,3 +99,4 @@ export default {
     ctaContact: "联系我们获取支持",
   },
 };
+export default translations;
