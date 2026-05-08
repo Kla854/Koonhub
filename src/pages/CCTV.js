@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export default function CCTV() {
-    return (
+export default function ITService() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
     <div className="font-sans text-gray-800">
 
       {/* 🔝 Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
           <Link to="/">
             <h1 className="font-bold text-xl tracking-wide hover:text-blue-600 transition">
               KOON-SERVICE
             </h1>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
 
   <Link to="/#home">Home</Link>
   <Link to="/#services">Services</Link>
@@ -20,15 +22,60 @@ export default function CCTV() {
   <Link to="/#contact">Contact</Link>
 
 </div>
+{/* MOBILE MENU BUTTON */}
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-3xl font-bold"
+  >
+    ☰
+  </button>
+</div>
         </div>
       </nav>
+      {/* MOBILE SLIDE MENU */}
+<div
+  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+    menuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+
+  <div className="flex justify-end p-4">
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="text-3xl"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+
+    <Link to="/#home" onClick={() => setMenuOpen(false)}>
+      Home
+    </Link>
+
+    <Link to="/#services" onClick={() => setMenuOpen(false)}>
+      Services
+    </Link>
+
+    <Link to="/#about" onClick={() => setMenuOpen(false)}>
+      About
+    </Link>
+
+    <Link to="/#contact" onClick={() => setMenuOpen(false)}>
+      Contact
+    </Link>
+
+  </div>
+</div>
 
       {/* 🔥 HERO */}
       <section id="home" className="relative h-screen">
 
         <img
           src="/images/CCTVV.png"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover "
           alt="logo"
         />
 
@@ -160,7 +207,7 @@ export default function CCTV() {
         <img
           src="/images/cctv1.png"
           alt="โปรเจคเยอะ"
-          className="w-full h-56 object-cover"
+          className="w-full max-h-[250px] object-contain mx-auto"
         />
         <div className="p-4 text-center">
           <h3 className="font-semibold text-lg mb-2">มองเห็นไม่ชัด</h3>
@@ -175,7 +222,7 @@ export default function CCTV() {
         <img
           src="/images/cctv2.png"
           alt="ติดตั้งไม่ถูกต้อง"
-          className="w-full h-56 object-cover"
+          className="w-full max-h-[250px] object-contain mx-auto"
         />
         <div className="p-4 text-center">
           <h3 className="font-semibold text-lg mb-2">ติดตั้งไม่ถูกต้อง</h3>
@@ -190,7 +237,7 @@ export default function CCTV() {
         <img
           src="/images/cctv3.png"
           alt="ระบบไม่เสถียร"
-          className="w-full h-56 object-cover"
+          className="w-full max-h-[250px] object-contain mx-auto"
         />
         <div className="p-4 text-center">
           <h3 className="font-semibold text-lg mb-2">ระบบไม่เสถียร</h3>
@@ -205,7 +252,7 @@ export default function CCTV() {
         <img
           src="/images/cctv4.png"
           alt="ไม่มีผู้ดูแลระบบ"
-          className="w-full h-56 object-cover"
+          className="w-full max-h-[250px] object-contain mx-auto"
         />
         <div className="p-4 text-center">
           <h3 className="font-semibold text-lg mb-2">ไม่มีผู้ดูแลระบบ</h3>

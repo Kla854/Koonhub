@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export default function Network() {
-    return (
- <div className="font-sans text-gray-800">
+export default function ITService() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <div className="font-sans text-gray-800">
 
       {/* 🔝 Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
           <Link to="/">
             <h1 className="font-bold text-xl tracking-wide hover:text-blue-600 transition">
               KOON-SERVICE
             </h1>
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
 
   <Link to="/#home">Home</Link>
   <Link to="/#services">Services</Link>
@@ -20,8 +22,53 @@ export default function Network() {
   <Link to="/#contact">Contact</Link>
 
 </div>
+{/* MOBILE MENU BUTTON */}
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-3xl font-bold"
+  >
+    ☰
+  </button>
+</div>
         </div>
       </nav>
+      {/* MOBILE SLIDE MENU */}
+<div
+  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+    menuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+
+  <div className="flex justify-end p-4">
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="text-3xl"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+
+    <Link to="/#home" onClick={() => setMenuOpen(false)}>
+      Home
+    </Link>
+
+    <Link to="/#services" onClick={() => setMenuOpen(false)}>
+      Services
+    </Link>
+
+    <Link to="/#about" onClick={() => setMenuOpen(false)}>
+      About
+    </Link>
+
+    <Link to="/#contact" onClick={() => setMenuOpen(false)}>
+      Contact
+    </Link>
+
+  </div>
+</div>
 
       {/* 🔥 HERO */}
       <section id="home" className="relative h-screen">

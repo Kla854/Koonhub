@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-
+import { useState } from "react";
 export default function Home() {
-
+    const [menuOpen, setMenuOpen] = useState(false);
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
@@ -39,14 +39,14 @@ useEffect(() => {
 
             {/* 🔝 Navbar */}
             <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
-                <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+                <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
                     <Link to="/">
                         <h1 className="font-bold text-xl tracking-wide hover:text-blue-600 transition">
               KOON-SERVICE
             </h1>
 
                     </Link>
-                        <div className="flex items-center gap-6">
+                        <div className="hidden md:flex items-center gap-6">
 
       <a href="#home">Home</a>
       <a href="#services">Services</a>
@@ -54,15 +54,61 @@ useEffect(() => {
       <a href="#contact">Contact</a>
 
     </div>
+    {/* MOBILE MENU BUTTON */}
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-3xl font-bold"
+  >
+    ☰
+  </button>
+</div>
                 </div>
             </nav>
+            {/* MOBILE SLIDE MENU */}
+<div
+  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+    menuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+
+  <div className="flex justify-end p-4">
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="text-3xl"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+
+    <a href="#home" onClick={() => setMenuOpen(false)}>
+      Home
+    </a>
+
+    <a href="#services" onClick={() => setMenuOpen(false)}>
+      Services
+    </a>
+
+    <a href="#about" onClick={() => setMenuOpen(false)}>
+      About
+    </a>
+
+    <a href="#contact" onClick={() => setMenuOpen(false)}>
+      Contact
+    </a>
+
+  </div>
+</div>
 
             {/* 🔥 HERO */}
-            <section id="home" className="relative h-screen">
+            <section id="home" className="relative h-screen overflow-hidden">
 
                 <img
                     src="/images/logo.png"
-                    className="absolute inset-0 w-full h-full object-cover"
+                    
+                    className="absolute inset-0 w-full h-full object-cover md:object-cover object-[10%]"
                     alt=""
                 />
 
@@ -106,7 +152,7 @@ useEffect(() => {
                     <img
                         src="/images/CCTV.png"
                         alt="CCTV"
-                        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-cover md:object-cover object-[35%]"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -134,7 +180,7 @@ useEffect(() => {
                     <img
                         src="/images/service.png"
                         alt="CCTV"
-                        className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-cover md:object-cover object-[85%]"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black-950/80 via-blue-900/40 to-transparent"></div>
@@ -189,7 +235,7 @@ useEffect(() => {
             </section>  */}
 
             {/* ⭐ About */}
-            <section id="about" className="py-16 reveal">
+            <section id="about" className="py-20 bg-gray-50">
                 <h2 className="text-3xl text-center font-bold mb-10">ทำไมต้องเลือกเรา</h2>
 
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center px-4">
