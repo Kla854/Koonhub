@@ -1,4 +1,4 @@
-﻿const translations = {
+const translations = {
   common: {
     logo: "KOON-SERVICE",
     viewService: "ဝန်ဆောင်မှုကြည့်ရန်",
