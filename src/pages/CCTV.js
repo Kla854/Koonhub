@@ -74,7 +74,7 @@ export default function ITService() {
       <section id="home" className="relative h-screen">
 
         <img
-          src="/images/CCTVV.png"
+          src="/images/CCTVV.webp"
           className="absolute inset-0 w-full h-full object-cover "
           alt="logo"
         />

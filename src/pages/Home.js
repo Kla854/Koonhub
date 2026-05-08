@@ -106,7 +106,7 @@ useEffect(() => {
             <section id="home" className="relative h-screen overflow-hidden">
 
                 <img
-                    src="/images/logo.png"
+                    src="/images/logo.webp"
                     
                     className="absolute inset-0 w-full h-full object-cover md:object-cover object-[10%]"
                     alt=""
@@ -150,7 +150,7 @@ useEffect(() => {
                 {/* LEFT */}
                 <div className="relative w-1/2 group overflow-hidden">
                     <img
-                        src="/images/CCTV.png"
+                        src="/images/CCTV.webp"
                         alt="CCTV"
                         className="absolute inset-0 w-full h-full object-cover md:object-cover object-[35%]"
                     />
