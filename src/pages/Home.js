@@ -2,7 +2,17 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function Home() {
+    const { t, i18n } = useTranslation();
+    const services = [
+    { name: t("services.itService"), link: "/it-service" },
+    { name: t("services.cctv"), link: "/cctv" },
+    { name: t("services.equipment"), link: "/equipment" },
+    { name: t("services.network"), link: "/network" },
+  ];
+    const whyItems = t("home.why", { returnObjects: true });
     const [menuOpen, setMenuOpen] = useState(false);
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -48,12 +58,22 @@ useEffect(() => {
                     </Link>
                         <div className="hidden md:flex items-center gap-6">
 
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-
+      <a href="#home">{t("nav.home")}</a>
+      <a href="#services">{t("nav.services")}</a>
+      <a href="#about">{t("nav.about")}</a>
+      <a href="#contact">{t("nav.contact")}</a>
+        <select
+  onChange={(e) => i18n.changeLanguage(e.target.value)}
+  className="border rounded px-2 py-1 text-sm font-sans"
+>
+  <option value="th">ไทย 🇹🇭</option>
+  <option value="en">EN 🇺🇸</option>
+  <option value="zh">中文 🇨🇳</option>
+  <option value="lo">ລາວ 🇱🇦</option>
+  <option value="mm">MM 🇲🇲</option>
+</select>
     </div>
+    
     {/* MOBILE MENU BUTTON */}
 <div className="md:hidden">
   <button
@@ -84,19 +104,19 @@ useEffect(() => {
   <div className="flex flex-col gap-6 p-6 text-lg font-medium">
 
     <a href="#home" onClick={() => setMenuOpen(false)}>
-      Home
+      {t("nav.home")}
     </a>
 
     <a href="#services" onClick={() => setMenuOpen(false)}>
-      Services
+      {t("nav.services")}
     </a>
 
     <a href="#about" onClick={() => setMenuOpen(false)}>
-      About
+      {t("nav.about")}
     </a>
 
     <a href="#contact" onClick={() => setMenuOpen(false)}>
-      Contact
+      {t("nav.contact")}
     </a>
 
   </div>
@@ -121,7 +141,7 @@ useEffect(() => {
                     </h1>
 
                     <p className="text-gray-300 mb-6 max-w-md">
-                        Professional IT Solutions for Your Business
+                        {t("hero.subtitle")}
                     </p>
 
 
@@ -131,7 +151,7 @@ useEffect(() => {
                         }}
                         className="border border-white px-8 py-3 hover:bg-white hover:text-black transition duration-300"
                     >
-                        สำรวจบริษัท
+                        {t("hero.cta")}
                     </button>
 
                 </div>
@@ -140,7 +160,7 @@ useEffect(() => {
             {/* 🔥 OUR SERVICE BAR */}
             <div className="bg-black py-4 text-center">
                 <h2 className="text-white text-xl tracking-[0.3em] font-semibold">
-                    OUR SERVICE
+                    {t("home.servicesTitle")}
                 </h2>
             </div>
 
@@ -166,7 +186,7 @@ useEffect(() => {
 
                         <Link to="/cctv">
                         <button className="border border-white px-6 py-2 hover:bg-white hover:text-black transition">
-                         VIEW SERVICE
+                         {t("common.viewService")}
                         </button>
                         </Link>
                     </div>
@@ -194,7 +214,7 @@ useEffect(() => {
 
                         <Link to="/it-service">
                         <button className="border border-white px-6 py-2 hover:bg-white hover:text-black transition">
-                         VIEW SERVICE
+                         {t("common.viewService")}
                         </button>
                         </Link>
                     </div>
@@ -202,9 +222,9 @@ useEffect(() => {
 
             </div>
 
-            {/* 🧩 Services 
+            {/*🧩 Services */}
             <section id="services" className="py-16 bg-gray-100 reveal">
-                <h2 className="text-3xl text-center font-bold mb-10">บริการของเรา</h2>
+                <h2 className="text-3xl text-center font-bold mb-10">{t("home.servicesTitle")}</h2>
 
                 <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
                     {services.map((item, i) => (
@@ -232,30 +252,19 @@ useEffect(() => {
                         )
                     ))}
                 </div>
-            </section>  */}
+            </section>  
 
             {/* ⭐ About */}
             <section id="about" className="py-20 bg-gray-50">
-                <h2 className="text-3xl text-center font-bold mb-10">ทำไมต้องเลือกเรา</h2>
+                <h2 className="text-3xl text-center font-bold mb-10">{t("home.whyTitle")}</h2>
 
                 <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center px-4">
-                    <div>
-                        <h3 className="font-semibold text-xl mb-2">รวดเร็ว</h3>
-                        <p>เราพร้อมให้บริการอย่างรวดเร็ว
-                            ลดเวลาการหยุดชะงักของระบบ และช่วยให้ธุรกิจของคุณดำเนินงานได้อย่างต่อเนื่อง</p>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold text-xl mb-2">มืออาชีพ</h3>
-                        <p>ทีมงานของเรามีประสบการณ์ด้าน IT มากกว่า 5 ปี
-                            พร้อมแก้ไขปัญหาได้อย่างตรงจุดและมีประสิทธิภาพสูงสุด</p>
-                    </div>
-
-                    <div>
-                        <h3 className="font-semibold text-xl mb-2">คุณภาพสูง</h3>
-                        <p>เราใช้มาตรฐานระดับสากลในการให้บริการ
-                            เพื่อให้ระบบของคุณมีความเสถียร ปลอดภัย และพร้อมใช้งานตลอดเวลา</p>
-                    </div>
+                    {whyItems.map((item, index) => (
+                        <div key={index}>
+                            <h3 className="font-semibold text-xl mb-2">{item.title}</h3>
+                            <p>{item.desc}</p>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -266,7 +275,7 @@ useEffect(() => {
 
                     {/* 🔥 TITLE */}
                     <h2 className="text-3xl font-bold text-center mb-16">
-                        ช่องทางติดต่อ
+                        {t("home.contactTitle")}
                     </h2>
 
                     {/* 🔥 CONTENT */}
@@ -289,13 +298,11 @@ useEffect(() => {
                             </div>
 
                             <p className="text-gray-300 leading-relaxed">
-                                บริษัท คูนเซอร์วิส จำกัด<br />
-                                329 ม.10 ถนนสายหลัก แขวงบางเสาธง<br />
-                                อำเภอบางเสาธง จังหวัดสมุทรปราการ 10570
+                                {t("home.address1")}
                             </p>
 
                             <p className="text-red-500 mt-4 font-semibold">
-                                โทร : 062-428-3696
+                                {t("common.phone")}
                             </p>
 
                         </div>
@@ -314,13 +321,11 @@ useEffect(() => {
                             </div>
 
                             <p className="text-gray-300 leading-relaxed">
-                                บริษัท คูนเซอร์วิส จำกัด<br />
-                                18 ซอย ลาซาล 65 แขวงบางนาใต้<br />
-                                เขตบางนา กรุงเทพมหานคร 10260
+                                {t("home.address2")}
                             </p>
 
                             <p className="text-red-500 mt-4 font-semibold">
-                                โทร : 062-428-3696
+                                {t("common.phone")}
                             </p>
 
                         </div>
@@ -334,9 +339,9 @@ useEffect(() => {
                                     📞
                                 </div>
                                 <div>
-                                    <p>โทร : 062-428-3696 (คุณมาร์ค)</p>
+                                    <p>{t("common.phone")}</p>
                                     <p className="text-gray-400 text-sm">
-                                        ทุกวัน : 8:00 - 17:00 น.
+                                        {t("common.hours")}
                                     </p>
                                 </div>
                             </div>
@@ -347,9 +352,9 @@ useEffect(() => {
                                     💬
                                 </div>
                                 <div>
-                                    <p>Line : @koon_s</p>
+                                    <p>{t("common.line")}</p>
                                     <p className="text-gray-400 text-sm">
-                                        ทุกวัน : 8:00 - 17:00 น.
+                                        {t("common.hours")}
                                     </p>
                                 </div>
                             </div>
@@ -360,9 +365,9 @@ useEffect(() => {
                                     ✉️
                                 </div>
                                 <div>
-                                    <p>E-mail : kvs_service@koonservice.com</p>
+                                    <p>{t("common.email")}</p>
                                     <p className="text-gray-400 text-sm">
-                                        ทุกวัน : 8:00 - 17:00 น.
+                                        {t("common.hours")}
                                     </p>
                                 </div>
                             </div>
@@ -377,7 +382,7 @@ useEffect(() => {
 
             {/* 🔻 Footer */}
             <footer className="bg-black text-gray-400 text-center py-6 text-sm">
-                © 2026 Koon-Service. All rights reserved. พัฒนาโดย นักศึกษาสาขาเทคโนโลยีดิจิทัลและสารสนเทศ ระดับปริญญาตรี
+                {t("common.footer")}
             </footer>
 
         </div>
