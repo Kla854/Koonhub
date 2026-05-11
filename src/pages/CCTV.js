@@ -213,7 +213,7 @@ export default function CCTV() {
             <Link to="/#contact">
 
               <button className="border-2 border-red-500 text-red-500 px-6 py-3 rounded-xl hover:bg-red-500 hover:text-white transition duration-300">
-                {t("cctv.problemButton")}
+                {t("cctv.ctaContact")}
               </button>
 
             </Link>
