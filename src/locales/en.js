@@ -114,7 +114,7 @@ const translations = {
       "Security system consulting",
       "Monthly maintenance services",
     ],
-    problemsTitle: "Common CCTV problems businesses face",
+    problemsTitle: "If you are facing these issues",
     cards: [
       { title: "Blurry footage", desc: "Images are not sharp or visible at night." },
       { title: "Incorrect installation", desc: "Camera angles do not cover key areas." },

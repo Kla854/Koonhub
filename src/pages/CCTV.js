@@ -207,7 +207,7 @@ export default function CCTV() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
 
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
-              {t("cctv.problemTitle")}
+              {t("cctv.problemsTitle")}
             </h2>
 
             <Link to="/#contact">
