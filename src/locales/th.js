@@ -50,9 +50,9 @@ const translations = {
   },
   services: {
     itService: "IT Service",
-    cctv: "CCTV & SECURITY",
+    cctv: "CCTV",
     equipment: "IT Equipment",
-    network: "NETWORK & SECURITY",
+    network: "NETWORK",
   },
   itService: {
     title: "IT Service",
@@ -75,7 +75,25 @@ const translations = {
     ],
     problemsTitle: "หากคุณกำลังเจอปัญหาเหล่านี้",
     ctaContact: "ติดต่อให้เราช่วยแก้ปัญหา",
+  cards: [
+  {
+    title: "โปรเจคเยอะ",
+    desc: "ต้องการช่างเพื่อรองรับโปรเจค",
   },
+  {
+    title: "หาช่างไม่ได้",
+    desc: "ไม่สามารถหาช่างที่มีทักษะได้",
+  },
+  {
+    title: "บริหารทีมไม่ได้",
+    desc: "บริหารจัดการทีมงานจำนวนมากไม่ได้",
+  },
+  {
+    title: "งบประมาณจำกัด",
+    desc: "ไม่สามารถจ้างพนักงานประจำเพิ่มได้",
+  },
+],
+},
   cctv: {
     title: "CCTV & SECURITY",
     introTitle: "บริการติดตั้งและดูแลระบบ CCTV & Security",
@@ -131,6 +149,8 @@ const translations = {
     ],
     ctaTitle: "ต้องการอุปกรณ์ IT สำหรับองค์กร ?",
     ctaText: "ปรึกษาผู้เชี่ยวชาญเพื่อออกแบบระบบที่เหมาะกับธุรกิจของคุณ",
+    ctaContact: "ติดต่อเราเพื่อสั่งซื้ออุปกรณ์",
+    featuredProducts: "สินค้าที่แนะนำ",
   },
   network: {
     title: "NETWORK & SECURITY",
@@ -160,6 +180,7 @@ const translations = {
     ],
     ctaTitle: "ต้องการวางระบบ Network ให้ปลอดภัย ?",
     ctaText: "ปรึกษาผู้เชี่ยวชาญเพื่อออกแบบระบบที่เหมาะกับธุรกิจของคุณ",
+    ctaContactText: "ติดต่อให้เราช่วยแก้ปัญหา",
   },
 };
 export default translations;

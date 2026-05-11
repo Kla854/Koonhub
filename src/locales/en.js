@@ -50,9 +50,9 @@ const translations = {
   },
   services: {
     itService: "IT Service",
-    cctv: "CCTV & SECURITY",
+    cctv: "CCTV",
     equipment: "IT Equipment",
-    network: "NETWORK & SECURITY",
+    network: "NETWORK",
   },
   itService: {
     title: "IT Service",
@@ -75,7 +75,26 @@ const translations = {
     ],
     problemsTitle: "If you are facing these issues",
     ctaContact: "Contact us for support",
+    cards: [
+  {
+    title: "Too many projects",
+    desc: "Need more technicians to support projects",
   },
+  {
+    title: "Can't find technicians",
+    desc: "Unable to find skilled technicians",
+  },
+  {
+    title: "Can't manage the team",
+    desc: "Unable to manage a large team efficiently",
+  },
+  {
+    title: "Limited budget",
+    desc: "Unable to hire more full-time employees",
+  },
+],
+  },
+
   cctv: {
     title: "CCTV & SECURITY",
     introTitle: "CCTV installation and maintenance services",
@@ -131,6 +150,10 @@ const translations = {
     ],
     ctaTitle: "Need IT equipment for your organization?",
     ctaText: "Speak with an expert to design a system that fits your business.",
+    ctaContact: "Contact us to purchase equipment",
+    ctaContactText: "Contact us for support",
+    featuredProducts: "Recommended Items"
+
   },
   network: {
     title: "NETWORK & SECURITY",
@@ -160,6 +183,8 @@ const translations = {
     ],
     ctaTitle: "Need a secure network system?",
     ctaText: "Talk to our experts to design the right system for your business.",
+    ctaContactText: "Contact us for support",
+    
   },
 };
 export default translations;

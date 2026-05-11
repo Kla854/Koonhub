@@ -1,81 +1,111 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-export default function ITService() {
+export default function CCTV() {
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="font-sans text-gray-800">
 
-      {/* 🔝 Navbar */}
+      {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
+
         <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+
           <Link to="/">
             <h1 className="font-bold text-xl tracking-wide hover:text-blue-600 transition">
               KOON-SERVICE
             </h1>
           </Link>
+
           <div className="hidden md:flex items-center gap-6">
 
-  <Link to="/#home">Home</Link>
-  <Link to="/#services">Services</Link>
-  <Link to="/#about">About</Link>
-  <Link to="/#contact">Contact</Link>
+            <Link to="/#home">{t("nav.home")}</Link>
+            <Link to="/#services">{t("nav.services")}</Link>
+            <Link to="/#about">{t("nav.about")}</Link>
+            <Link to="/#contact">{t("nav.contact")}</Link>
 
-</div>
-{/* MOBILE MENU BUTTON */}
-<div className="md:hidden">
-  <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    className="text-3xl font-bold"
-  >
-    ☰
-  </button>
-</div>
+            <select
+            value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              className="border rounded px-2 py-1 text-sm"
+            >
+              <option value="th">ไทย</option>
+              <option value="en">EN</option>
+            </select>
+
+          </div>
+
+          {/* MOBILE BUTTON */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-3xl font-bold"
+            >
+              ☰
+            </button>
+          </div>
+
         </div>
+
       </nav>
-      {/* MOBILE SLIDE MENU */}
-<div
-  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
-    menuOpen ? "translate-x-0" : "translate-x-full"
-  }`}
+
+      {/* MOBILE MENU */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+
+        <div className="flex justify-end p-4">
+
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="text-3xl"
+          >
+            ✕
+          </button>
+
+        </div>
+
+        <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+<select
+  value={i18n.language}
+  onChange={(e) => i18n.changeLanguage(e.target.value)}
+  className="border rounded px-2 py-2 text-base"
 >
+  <option value="th">ไทย</option>
+  <option value="en">EN</option>
+</select>
+          <Link to="/#home" onClick={() => setMenuOpen(false)}>
+            {t("nav.home")}
+          </Link>
 
-  <div className="flex justify-end p-4">
-    <button
-      onClick={() => setMenuOpen(false)}
-      className="text-3xl"
-    >
-      ✕
-    </button>
-  </div>
+          <Link to="/#services" onClick={() => setMenuOpen(false)}>
+            {t("nav.services")}
+          </Link>
 
-  <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+          <Link to="/#about" onClick={() => setMenuOpen(false)}>
+            {t("nav.about")}
+          </Link>
 
-    <Link to="/#home" onClick={() => setMenuOpen(false)}>
-      Home
-    </Link>
+          <Link to="/#contact" onClick={() => setMenuOpen(false)}>
+            {t("nav.contact")}
+          </Link>
 
-    <Link to="/#services" onClick={() => setMenuOpen(false)}>
-      Services
-    </Link>
+        </div>
 
-    <Link to="/#about" onClick={() => setMenuOpen(false)}>
-      About
-    </Link>
+      </div>
 
-    <Link to="/#contact" onClick={() => setMenuOpen(false)}>
-      Contact
-    </Link>
-
-  </div>
-</div>
-
-      {/* 🔥 HERO */}
+      {/* HERO */}
       <section id="home" className="relative h-screen">
 
         <img
           src="/images/CCTVV.webp"
-          className="absolute inset-0 w-full h-full object-cover "
+          className="absolute inset-0 w-full h-full object-cover"
           alt="logo"
         />
 
@@ -84,207 +114,181 @@ export default function ITService() {
         <div className="relative flex flex-col items-center justify-center h-full text-white text-center px-4">
 
           <h1 className="text-5xl md:text-6xl font-semibold tracking-wide mb-6">
-            CCTV & SECURITY
+            {t("cctv.title")}
           </h1>
 
-
           <button
-  onClick={() => {
-    document.getElementById("intro")?.scrollIntoView({ behavior: "smooth" });
-  }}
-  className="border border-white px-8 py-3 hover:bg-white hover:text-black transition"
->
-  สำรวจการบริการ
-</button>
+            onClick={() => {
+              document
+                .getElementById("intro")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="border border-white px-8 py-3 hover:bg-white hover:text-black transition"
+          >
+            {t("common.explore")}
+          </button>
 
         </div>
+
       </section>
 
-      {/* 🧩 INTRO */}
-      <section id="intro" className="py-20 text-center max-w-4xl mx-auto px-6">
+      {/* INTRO */}
+      <section
+        id="intro"
+        className="py-20 text-center max-w-4xl mx-auto px-6"
+      >
+
         <h2 className="text-3xl font-bold mb-6">
-  บริการติดตั้งและดูแลระบบ CCTV & Security
-</h2>
+          {t("cctv.introTitle")}
+        </h2>
 
-<p className="text-gray-600 leading-relaxed">
-  เราให้บริการออกแบบ ติดตั้ง และดูแลระบบกล้องวงจรปิด (CCTV)
-  พร้อมระบบรักษาความปลอดภัยแบบครบวงจร สำหรับองค์กร อาคารสำนักงาน โรงงาน และธุรกิจทุกประเภท
-  โดยทีมงานมืออาชีพ เพื่อเพิ่มความปลอดภัยและความมั่นใจให้กับธุรกิจของคุณ
-</p>
+        <p className="text-gray-600 leading-relaxed">
+          {t("cctv.introText")}
+        </p>
+
       </section>
 
-      {/* 📋 DETAIL (เหมือนเว็บต้นแบบเลย) */}
+      {/* DETAIL */}
       <section id="detail" className="py-20 bg-gray-100 text-center">
 
-  <h2 className="text-3xl font-bold mb-12">
-    ขอบเขตการให้บริการ
-  </h2>
+        <h2 className="text-3xl font-bold mb-12">
+          {t("cctv.detailTitle")}
+        </h2>
 
-  {/* 🔥 ตัวนี้คือหัวใจ */}
-  <div className="inline-grid md:grid-cols-2 gap-x-20 gap-y-4 text-left">
+        <div className="inline-grid md:grid-cols-2 gap-x-20 gap-y-4 text-left">
 
-    {/* LEFT */}
-    <ul className="space-y-4">
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ออกแบบและติดตั้งระบบ CCTV ตามพื้นที่ใช้งาน</span>
-  </li>
+          {/* LEFT */}
+          <ul className="space-y-4">
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ติดตั้งกล้อง IP Camera และ Analog Camera</span>
-  </li>
+            {t("cctv.pointsLeft", {
+              returnObjects: true,
+            }).map((item, index) => (
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>วางระบบสายสัญญาณและอุปกรณ์เครือข่าย</span>
-  </li>
+              <li key={index} className="flex gap-3">
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ติดตั้งเครื่องบันทึกภาพ (NVR / DVR)</span>
-  </li>
+                <span className="text-green-500">✔</span>
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ตั้งค่าดูภาพผ่านมือถือและอินเทอร์เน็ต</span>
-  </li>
-</ul>
+                <span>{item}</span>
 
-    {/* RIGHT */}
-    <ul className="space-y-4">
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ดูแลและบำรุงรักษาระบบ CCTV</span>
-  </li>
+              </li>
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ตรวจสอบและแก้ไขปัญหาระบบกล้อง</span>
-  </li>
+            ))}
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ปรับปรุงและอัปเกรดระบบเดิม</span>
-  </li>
+          </ul>
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ให้คำปรึกษาด้านระบบรักษาความปลอดภัย</span>
-  </li>
+          {/* RIGHT */}
+          <ul className="space-y-4">
 
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>บริการดูแลระบบแบบรายเดือน (Maintenance)</span>
-  </li>
-</ul>
+            {t("cctv.pointsRight", {
+              returnObjects: true,
+            }).map((item, index) => (
 
-  </div>
-</section>
+              <li key={index} className="flex gap-3">
 
+                <span className="text-green-500">✔</span>
 
-<section className="py-24 bg-gray-100">
-  <div className="max-w-7xl mx-auto px-6">
+                <span>{item}</span>
 
-    {/* 🔝 Header */}
-    <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
-        ปัญหาที่ธุรกิจมักพบเกี่ยวกับระบบ CCTV
-      </h2>
+              </li>
 
-      <Link to="/#contact">
-      <button className="border-2 border-red-500 text-red-500 px-6 py-3 rounded-lg hover:bg-red-500 hover:text-white transition">
-        ติดต่อให้เราช่วยแก้ปัญหา
-      </button>
-      </Link>
-    </div>
+            ))}
 
-    {/* 🧩 Cards */}
-    <div className="grid md:grid-cols-4 gap-8">
+          </ul>
 
-      {/* Card 1 */}
-      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
-        <img
-          src="/images/cctv1.png"
-          alt="โปรเจคเยอะ"
-          className="w-full max-h-[250px] object-contain mx-auto"
-        />
-        <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">มองเห็นไม่ชัด</h3>
-          <p className="text-gray-600 text-sm">
-            ภาพไม่คมชัด หรือมองไม่เห็นในเวลากลางคืน
-          </p>
         </div>
-      </div>
 
-      {/* Card 2 */}
-      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
-        <img
-          src="/images/cctv2.png"
-          alt="ติดตั้งไม่ถูกต้อง"
-          className="w-full max-h-[250px] object-contain mx-auto"
-        />
-        <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">ติดตั้งไม่ถูกต้อง</h3>
-          <p className="text-gray-600 text-sm">
-            มุมกล้องไม่ครอบคลุมพื้นที่สำคัญ
-          </p>
+      </section>
+
+      {/* PROBLEMS */}
+      <section className="py-24 bg-gray-100">
+
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
+              {t("cctv.problemTitle")}
+            </h2>
+
+            <Link to="/#contact">
+
+              <button className="border-2 border-red-500 text-red-500 px-6 py-3 rounded-xl hover:bg-red-500 hover:text-white transition duration-300">
+                {t("cctv.problemButton")}
+              </button>
+
+            </Link>
+
+          </div>
+
+          {/* CARDS */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-4">
+
+            {t("cctv.cards", { returnObjects: true }).map((card, index) => (
+
+              <div
+                key={index}
+                className="
+                  bg-white rounded-2xl overflow-hidden
+                  shadow-lg hover:shadow-2xl
+                  transition duration-300
+                  hover:-translate-y-3 hover:scale-[1.02]
+                "
+              >
+
+                <img
+                  src={`/images/cctv${index + 1}.png`}
+                  alt={card.title}
+                  className="w-40 h-40 object-contain mx-auto mt-6"
+                />
+
+                <div className="p-6 text-center">
+
+                  <h3 className="font-bold text-xl mb-2">
+                    {card.title}
+                  </h3>
+
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    {card.desc}
+                  </p>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
         </div>
-      </div>
 
-      {/* Card 3 */}
-      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
-        <img
-          src="/images/cctv3.png"
-          alt="ระบบไม่เสถียร"
-          className="w-full max-h-[250px] object-contain mx-auto"
-        />
-        <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">ระบบไม่เสถียร</h3>
-          <p className="text-gray-600 text-sm">
-            กล้องหลุดบ่อย หรือไม่สามารถดูย้อนหลังได้
-          </p>
-        </div>
-      </div>
+      </section>
 
-      {/* Card 4 */}
-      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
-        <img
-          src="/images/cctv4.png"
-          alt="ไม่มีผู้ดูแลระบบ"
-          className="w-full max-h-[250px] object-contain mx-auto"
-        />
-        <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">ไม่มีผู้ดูแลระบบ</h3>
-          <p className="text-gray-600 text-sm">
-            ไม่มีทีมดูแลระบบเมื่อเกิดปัญหา
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-      {/* 📞 CTA */}
+      {/* CTA */}
       <section className="bg-black text-white py-20 text-center">
+
         <h2 className="text-3xl font-bold mb-4">
-          สนใจบริการ CCTV & Security ?
+          {t("cctv.ctaContact")}
         </h2>
 
         <p className="text-gray-300 mb-6">
-          ปรึกษาผู้เชี่ยวชาญเพื่อออกแบบระบบที่เหมาะกับธุรกิจของคุณ
+          {t("equipment.ctaText")}
         </p>
 
         <Link to="/#contact">
-   <button className="bg-red-500 px-6 py-3 rounded hover:bg-red-600 transition">
-    ติดต่อเรา
-    </button>
-    </Link>
+
+          <button className="bg-red-500 px-6 py-3 rounded hover:bg-red-600 transition">
+            {t("common.contactButton")}
+          </button>
+
+        </Link>
+
       </section>
+
+      {/* FOOTER */}
       <footer className="bg-black text-gray-400 text-center py-6 text-sm">
-                © 2026 Koon-Service. All rights reserved. พัฒนาโดย นักศึกษาสาขาเทคโนโลยีดิจิทัลและสารสนเทศ ระดับปริญญาตรี
-            </footer>
+        {t("common.footer")}
+      </footer>
+
     </div>
   );
 }

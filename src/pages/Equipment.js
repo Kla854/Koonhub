@@ -1,28 +1,97 @@
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Equipment() {
+   const { t, i18n } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+const cards = t("itService.cards", { returnObjects: true });
     return (
+      
     <div className="font-sans text-gray-800">
 
       {/* 🔝 Navbar */}
+      {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 border-b">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+
           <Link to="/">
             <h1 className="font-bold text-xl tracking-wide hover:text-blue-600 transition">
               KOON-SERVICE
             </h1>
           </Link>
-          <div className="flex items-center gap-6">
 
-  <Link to="/#home">Home</Link>
-  <Link to="/#services">Services</Link>
-  <Link to="/#about">About</Link>
-  <Link to="/#contact">Contact</Link>
+          <div className="hidden md:flex items-center gap-6">
 
+            <Link to="/#home">{t("nav.home")}</Link>
+            <Link to="/#services">{t("nav.services")}</Link>
+            <Link to="/#about">{t("nav.about")}</Link>
+            <Link to="/#contact">{t("nav.contact")}</Link>
+
+            <select
+            value={i18n.language}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              className="border rounded px-2 py-1 text-sm"
+            >
+              <option value="th">ไทย</option>
+              <option value="en">EN</option>
+            </select>
+
+          </div>
+{/* MOBILE MENU BUTTON */}
+<div className="md:hidden">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-3xl font-bold"
+  >
+    ☰
+  </button>
 </div>
         </div>
       </nav>
+      {/* MOBILE SLIDE MENU */}
+<div
+  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${
+    menuOpen ? "translate-x-0" : "translate-x-full"
+  }`}
+>
+
+  <div className="flex justify-end p-4">
+    <button
+      onClick={() => setMenuOpen(false)}
+      className="text-3xl"
+    >
+      ✕
+    </button>
+  </div>
+
+  <div className="flex flex-col gap-6 p-6 text-lg font-medium">
+<select
+  value={i18n.language}
+  onChange={(e) => i18n.changeLanguage(e.target.value)}
+  className="border rounded px-2 py-2 text-base"
+>
+  <option value="th">ไทย</option>
+  <option value="en">EN</option>
+</select>
+    <Link to="/#home" onClick={() => setMenuOpen(false)}>
+      {t("nav.home")}
+    </Link>
+
+    <Link to="/#services" onClick={() => setMenuOpen(false)}>
+      {t("nav.services")}
+    </Link>
+
+    <Link to="/#about" onClick={() => setMenuOpen(false)}>
+      {t("nav.about")}
+    </Link>
+
+    <Link to="/#contact" onClick={() => setMenuOpen(false)}>
+      {t("nav.contact")}
+    </Link>
+
+  </div>
+</div>
 
       {/* 🔥 HERO */}
       <section id="home" className="relative h-screen">
@@ -48,7 +117,7 @@ export default function Equipment() {
   }}
   className="border border-white px-8 py-3 hover:bg-white hover:text-black transition"
 >
-  สำรวจการบริการ
+  {t("common.explore")}
 </button>
 
         </div>
@@ -57,84 +126,14 @@ export default function Equipment() {
       {/* 🧩 INTRO */}
       <section id="intro" className="py-20 text-center max-w-4xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-6">
-          จำหน่ายและติดตั้งอุปกรณ์ IT ครบวงจร
+          {t("equipment.introTitle")}
         </h2>
 
         <p className="text-gray-600 leading-relaxed">
-          เราจำหน่ายและให้บริการติดตั้งอุปกรณ์ IT สำหรับองค์กร เช่น คอมพิวเตอร์ เซิร์ฟเวอร์ อุปกรณ์เครือข่าย 
-  และระบบสำนักงานครบวงจร พร้อมให้คำแนะนำในการเลือกใช้อุปกรณ์ที่เหมาะสมกับธุรกิจของคุณ 
-  เพื่อเพิ่มประสิทธิภาพในการทำงานและลดต้นทุนในระยะยาว
+          {t("equipment.introText")}
         </p>
       </section>
 
-      {/* 📋 DETAIL (เหมือนเว็บต้นแบบเลย) */}
-      <section id="detail" className="py-20 bg-gray-100 text-center">
-
-  <h2 className="text-3xl font-bold mb-12">
-    ขอบเขตการให้บริการ
-  </h2>
-
-  {/* 🔥 ตัวนี้คือหัวใจ */}
-  <div className="inline-grid md:grid-cols-2 gap-x-20 gap-y-4 text-left">
-
-    {/* LEFT */}
-    <ul className="space-y-4">
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>จำหน่ายคอมพิวเตอร์ PC / Notebook</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>จำหน่ายอุปกรณ์ Network (Router, Switch, Access Point)</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>จำหน่าย Server และอุปกรณ์จัดเก็บข้อมูล (NAS)</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>อุปกรณ์สำนักงาน เช่น Printer / Scanner</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>อุปกรณ์เสริม เช่น UPS / Rack / สายสัญญาณ</span>
-  </li>
-</ul>
-
-    {/* RIGHT */}
-    <ul className="space-y-4">
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>บริการติดตั้งและตั้งค่าอุปกรณ์</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>วางระบบ Network สำหรับองค์กร</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ติดตั้งระบบ Server และระบบสำรองข้อมูล</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>ให้คำปรึกษาเลือกอุปกรณ์ให้เหมาะกับงาน</span>
-  </li>
-
-  <li className="flex gap-3">
-    <span className="text-green-500">✔</span>
-    <span>บริการหลังการขายและดูแลระบบ</span>
-  </li>
-</ul>
-
-  </div>
-</section>
 
 
 <section className="py-24 bg-gray-100">
@@ -143,30 +142,30 @@ export default function Equipment() {
     {/* 🔝 Header */}
     <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
-        ปัญหาที่พบบ่อยเกี่ยวกับอุปกรณ์ IT
+        {t("equipment.featuredProducts")}
       </h2>
 
       <Link to="/#contact">
       <button className="border-2 border-red-500 text-red-500 px-6 py-3 rounded-lg hover:bg-red-500 hover:text-white transition">
-        ติดต่อให้เราช่วยแก้ปัญหา
+        {t("equipment.ctaContact")}
       </button>
       </Link>
     </div>
 
     {/* 🧩 Cards */}
-    <div className="grid md:grid-cols-4 gap-8">
+    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-4">
 
       {/* Card 1 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
           src="/images/p1.jpg"
-          alt="อุปกรณ์ล้าสมัย"
+          alt="สินค้า 1"
           className="w-full h-56 object-cover"
         />
         <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">อุปกรณ์ล้าสมัย</h3>
+          <h3 className="font-semibold text-lg mb-2">สินค้า 1</h3>
           <p className="text-gray-600 text-sm">
-            คอมพิวเตอร์หรือระบบทำงานช้า ไม่รองรับงานใหม่
+            สินค้า 1
           </p>
         </div>
       </div>
@@ -175,13 +174,13 @@ export default function Equipment() {
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
           src="/images/p2.jpg"
-          alt="เลือกอุปกรณ์ไม่เหมาะสม"
+          alt="สินค้า 2"
           className="w-full h-56 object-cover"
         />
         <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">เลือกอุปกรณ์ไม่เหมาะสม</h3>
+          <h3 className="font-semibold text-lg mb-2">สินค้า 2</h3>
           <p className="text-gray-600 text-sm">
-            ซื้อมาแล้วใช้งานไม่ตรงกับความต้องการ
+            สินค้า 2
           </p>
         </div>
       </div>
@@ -190,13 +189,13 @@ export default function Equipment() {
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
           src="/images/p3.jpg"
-          alt="ระบบไม่เสถียร"
+          alt="สินค้า 3"
           className="w-full h-56 object-cover"
         />
         <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">ระบบไม่เสถียร</h3>
+          <h3 className="font-semibold text-lg mb-2">สินค้า 3</h3>
           <p className="text-gray-600 text-sm">
-            อุปกรณ์มีปัญหาบ่อย ส่งผลต่อการทำงาน
+            สินค้า 3
           </p>
         </div>
       </div>
@@ -205,16 +204,77 @@ export default function Equipment() {
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
           src="/images/p4.jpg"
-          alt="ไม่มีผู้ดูแล"
+          alt="สินค้า 4"
           className="w-full h-56 object-cover"
         />
         <div className="p-4 text-center">
-          <h3 className="font-semibold text-lg mb-2">ไม่มีผู้ดูแล</h3>
+          <h3 className="font-semibold text-lg mb-2">สินค้า 4</h3>
           <p className="text-gray-600 text-sm">
-            ไม่มีทีม IT คอยดูแลและแก้ไขปัญหา
+            สินค้า 4
           </p>
         </div>
       </div>
+
+      {/* Card 5 */}
+      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
+        <img
+          src="/images/p4.jpg"
+          alt="สินค้า 5"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-4 text-center">
+          <h3 className="font-semibold text-lg mb-2">สินค้า 5</h3>
+          <p className="text-gray-600 text-sm">
+            สินค้า 5
+          </p>
+        </div>
+      </div>
+
+      {/* Card 6 */}
+      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
+        <img
+          src="/images/p4.jpg"
+          alt="สินค้า 6"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-4 text-center">
+          <h3 className="font-semibold text-lg mb-2">สินค้า 6</h3>
+          <p className="text-gray-600 text-sm">
+            สินค้า 6
+          </p>
+        </div>
+      </div>
+
+      {/* Card 7 */}
+      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
+        <img
+          src="/images/p4.jpg"
+          alt="สินค้า 7"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-4 text-center">
+          <h3 className="font-semibold text-lg mb-2">สินค้า 7</h3>
+          <p className="text-gray-600 text-sm">
+            สินค้า 7
+          </p>
+        </div>
+      </div>
+
+      {/* Card 8 */}
+      <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
+        <img
+          src="/images/p4.jpg"
+          alt="สินค้า 8"
+          className="w-full h-56 object-cover"
+        />
+        <div className="p-4 text-center">
+          <h3 className="font-semibold text-lg mb-2">สินค้า 8</h3>
+          <p className="text-gray-600 text-sm">
+            สินค้า 8
+          </p>
+        </div>
+      </div>
+      
 
     </div>
   </div>
@@ -223,16 +283,16 @@ export default function Equipment() {
       {/* 📞 CTA */}
       <section className="bg-black text-white py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">
-          ต้องการอุปกรณ์ IT สำหรับองค์กร ?
+          {t("equipment.ctaTitle")}
         </h2>
 
         <p className="text-gray-300 mb-6">
-          ปรึกษาผู้เชี่ยวชาญเพื่อออกแบบระบบที่เหมาะกับธุรกิจของคุณ
+          {t("equipment.ctaText")}
         </p>
 
         <Link to="/#contact">
    <button className="bg-red-500 px-6 py-3 rounded hover:bg-red-600 transition">
-    ติดต่อเรา
+    {t("common.contactButton")}
     </button>
     </Link>
       </section>

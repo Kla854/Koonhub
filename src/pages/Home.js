@@ -63,14 +63,12 @@ useEffect(() => {
       <a href="#about">{t("nav.about")}</a>
       <a href="#contact">{t("nav.contact")}</a>
         <select
+        value={i18n.language}
   onChange={(e) => i18n.changeLanguage(e.target.value)}
   className="border rounded px-2 py-1 text-sm font-sans"
 >
-  <option value="th">ไทย 🇹🇭</option>
-  <option value="en">EN 🇺🇸</option>
-  <option value="zh">中文 🇨🇳</option>
-  <option value="lo">ລາວ 🇱🇦</option>
-  <option value="mm">MM 🇲🇲</option>
+  <option value="th" >ไทย</option>
+  <option value="en">EN</option>
 </select>
     </div>
     
@@ -102,7 +100,14 @@ useEffect(() => {
   </div>
 
   <div className="flex flex-col gap-6 p-6 text-lg font-medium">
-
+        <select
+  value={i18n.language}
+  onChange={(e) => i18n.changeLanguage(e.target.value)}
+  className="border rounded px-2 py-2 text-base"
+>
+  <option value="th">ไทย</option>
+  <option value="en">EN</option>
+</select>
     <a href="#home" onClick={() => setMenuOpen(false)}>
       {t("nav.home")}
     </a>
