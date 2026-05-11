@@ -6,7 +6,6 @@ export default function ITService() {
 
   const { t, i18n } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
-const cards = t("itService.cards", { returnObjects: true });
   return (
     <div className="font-sans text-gray-800">
 
