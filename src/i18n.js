@@ -15,7 +15,7 @@ i18n.use(initReactI18next).init({
     zh: { translation: zh },
   },
 
-  lng: "th",
+  lng: "en",
 
   interpolation: {
     escapeValue: false,

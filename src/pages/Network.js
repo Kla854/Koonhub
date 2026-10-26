@@ -98,7 +98,7 @@ export default function ITService() {
       <section id="home" className="relative h-screen">
 
         <img
-          src="/images/it.jpg"
+          src="/images/network.jpg"
           className="absolute inset-0 w-full h-full object-cover"
           alt="logo"
         />
@@ -209,7 +209,7 @@ export default function ITService() {
       {/* Card 1 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p1.jpg"
+          src="/images/slowinternet.png"
           alt={t("network.cards.0.title")}
           className="w-full h-56 object-cover"
         />
@@ -224,7 +224,7 @@ export default function ITService() {
       {/* Card 2 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p2.jpg"
+          src="/images/frequentoutages.png"
           alt={t("network.cards.1.title")}
           className="w-full h-56 object-cover"
         />
@@ -239,7 +239,7 @@ export default function ITService() {
       {/* Card 3 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p3.jpg"
+          src="/images/securityattacks.png"
           alt={t("network.cards.2.title")}
           className="w-full h-56 object-cover"
         />
@@ -254,7 +254,7 @@ export default function ITService() {
       {/* Card 4 */}
       <div className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition duration-300 hover:-translate-y-2">
         <img
-          src="/images/p4.jpg"
+          src="/images/insecurity.png"
           alt={t("network.cards.3.title")}
           className="w-full h-56 object-cover"
         />
